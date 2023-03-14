@@ -20,9 +20,6 @@ def train_policy(env, num_episodes=10000, weight=0.1, discount=0.9):
     return policy
 
 
-trained_policy = train_policy(Environment())
-
-
 def evaluate_policy(env, policy, num_episodes=10):
     simulation = Simulation(env)
     steps = 0
@@ -34,4 +31,6 @@ def evaluate_policy(env, policy, num_episodes=10):
     return steps / num_episodes
 
 
-print(evaluate_policy(Environment(), trained_policy))
+if __name__ == "__main__":
+    trained_policy = train_policy(Environment())
+    print(evaluate_policy(Environment(), trained_policy))
